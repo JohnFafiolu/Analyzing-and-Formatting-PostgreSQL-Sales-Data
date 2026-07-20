@@ -37,10 +37,16 @@ To ensure accurate profitability tracking, the raw data underwent rigorous clean
 4.  **Top Product Ranking:** Extracted the top 5 performing products within each distinct category to provide granular inventory insights.
 
 ## 💡 Key Insights & Findings
-*(Note to self: Fill in the top 3 actual findings from your SQL notebook here before publishing)*
-1.  **[Example Insight 1]:** Office Supplies yielded the highest overall profit margin despite having a lower average order value than Technology.
-2.  **[Example Insight 2]:** The top 5 products in the Furniture category accounted for 40% of the category's total revenue.
-3.  **[Example Insight 3]:** Imputing missing discount values revealed a hidden correlation between aggressive discounting and higher return rates in the Southern region.
+
+*   **High Sales Do Not Always Equal Profitability:** There is a significant discrepancy between revenue and profit in certain categories. Most notably, in the Office Supplies category, the "Hoover Stove, White" ranks 2nd in total sales ($32,842.60) but actually resulted in a net loss, generating a negative profit of -$2,180.63. 
+*   **Technology Drives the Highest Revenue and Margins:** The Technology category dominates top-line sales, with the top four products all being full-size smartphones (Apple, Cisco, Motorola, and Nokia), each exceeding $71,000 in total sales. Furthermore, the "Canon imageCLASS 2200 Advanced Copier" acts as a massive profit driver, generating $25,199.93 in profit alone.
+*   **Successful Data Imputation Maintained Dataset Integrity:** Missing `quantity` values were successfully recovered by reverse-engineering a `unit_price` (calculated as Sales divided by Quantity) grouped by specific product, discount, market, and region dimensions. This CTE logic seamlessly calculated missing quantities (e.g., extracting exact quantities of 2.0, 3.0, and 4.0 for specific Furniture and Technology transactions) ensuring the final analysis was not skewed by incomplete records.
+
+## 🚀 Strategic Recommendations
+
+*   **Investigate Loss-Leading Products:** Immediately review the pricing, supplier costs, and discount structures for the "Hoover Stove, White." Because it has high sales volume but negative margins, adjusting its price point or reducing applied discounts could quickly turn a major loss into a profit center.
+*   **Double-Down on High-Margin Tech:** Shift marketing and inventory budget toward the Canon imageCLASS Copier and the top-tier smartphone lines. These products offer the highest return on investment and should be heavily promoted in B2B or premium retail channels.
+*   **Fix Upstream Data Collection:** While the missing values were successfully imputed using SQL, the business should implement automated data validation rules at the point-of-sale system to prevent NULL `quantity` fields from being recorded in the database moving forward.
 
 ---
 ## 💻 View the Code
