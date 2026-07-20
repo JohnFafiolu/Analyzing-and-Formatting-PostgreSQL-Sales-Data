@@ -46,7 +46,7 @@ To ensure accurate profitability tracking, the raw data underwent rigorous clean
 ## 💻 View the Code
 You can view the full SQL queries, data cleaning steps, and analysis in the Jupyter Notebook here: 
 
-[notebook.ipynb]
+[Click here to view the complete notebook.ipynb file](notebook.ipynb)
 ---
 ## 📬 Let's Connect
 **John Fafiolu O.** | **Data Analyst** 
